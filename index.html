@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strivton - Create The Buzz | PR & Digital Marketing Agency</title>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+          * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary-black: #000; --light-gray: #f8f9fa; --medium-gray: #6c757d; --white: #fff; --accent-gold: #d4af37; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; color: #333; }
+        nav { background: var(--primary-black); padding: 1.2rem 5%; position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-image { width: 50px; height: 50px; border-radius: 8px; object-fit: cover; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+        .nav-links a { color: var(--white); text-decoration: none; font-weight: 500; }
+        .nav-cta { background: var(--white); color: var(--primary-black) !important; padding: 0.7rem 1.8rem; border-radius: 50px; font-weight: 700; }
+        .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+        .page { display: none; }
+        .page.active { display: block; }
+        .hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; color: var(--white); overflow: hidden; text-align: center; }
+        .hero-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); object-fit: cover; }
+        .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+        .hero-content { position: relative; z-index: 2; padding: 2rem; max-width: 1000px; }
+        .hero h1 { font-size: 4rem; font-weight: 900; margin-bottom: 1rem; letter-spacing: 2px; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); }
+        .hero .tagline { font-size: 1.5rem; letter-spacing: 4px; margin-bottom: 2rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+        .hero p { font-size: 1.3rem; max-width: 800px; margin: 0 auto 3rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+        .cta-button { display: inline-block; background: var(--accent-gold); color: var(--primary-black); padding: 1rem 3rem; font-size: 1.1rem; font-weight: 700; text-decoration: none; border-radius: 50px; transition: all 0.3s; box-shadow: 0 8px 20px rgba(212,175,55,0.4); }
+        .cta-button:hover { transform: translateY(-3px); }
+        .content-section { max-width: 1400px; margin: 0 auto; padding: 80px 5%; }
+        .section-title { font-size: 3rem; font-weight: 900; text-align: center; margin-bottom: 3rem; }
+        .section-subtitle { text-align: center; font-size: 1.2rem; color: var(--medium-gray); max-width: 700px; margin: -2rem auto 4rem; }
+        .services-grid, .pricing-grid, .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+        .service-card, .pricing-card, .blog-card { background: var(--light-gray); padding: 2.5rem; border-radius: 15px; transition: all 0.3s; }
+        .service-card:hover, .pricing-card:hover, .blog-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .service-icon { width: 64px; height: 64px; margin-bottom: 1.5rem; font-size: 2rem; }
+        .service-icon img { width: 100%; height: 100%; object-fit: contain; }
+        .pricing-card { background: var(--white); box-shadow: 0 10px 40px rgba(0,0,0,0.1); display: flex; flex-direction: column; position: relative; }
+        .pricing-card.featured { background: linear-gradient(135deg, var(--primary-black), #2d2d2d); color: var(--white); transform: scale(1.05); border: 3px solid var(--accent-gold); }
+        .tier-name { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .pricing-card.featured .tier-name { color: var(--accent-gold); }
+        .price { font-size: 2.5rem; font-weight: 800; margin: 1.5rem 0; }
+        .pricing-card.featured .price { color: var(--white); }
+        .pricing-card ul { list-style: none; margin: 2rem 0; flex-grow: 1; padding: 0; }
+        .pricing-card ul li { padding: 0.75rem 0 0.75rem 2rem; position: relative; }
+        .pricing-card ul li:before { content: "✓"; position: absolute; left: 0; color: #10b981; font-weight: bold; font-size: 1.2rem; }
+        .pricing-card.featured ul li:before { color: var(--accent-gold); }
+        .blog-card { background: var(--white); cursor: pointer; padding: 0; }
+        .blog-image { width: 100%; height: 250px; position: relative; }
+        .blog-image img { width: 100%; height: 100%; object-fit: cover; }
+        .blog-category { position: absolute; top: 1rem; left: 1rem; background: var(--primary-black); color: var(--white); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        .blog-content { padding: 2rem; }
+        .blog-meta { display: flex; gap: 1.5rem; font-size: 0.9rem; color: var(--medium-gray); margin-bottom: 1rem; }
+        footer { background: var(--primary-black); color: var(--white); padding: 5rem 5% 2rem; }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 4rem; margin-bottom: 3rem; }
+        .social-links { display: flex; gap: 1rem; }
+        .social-link { width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; transition: all 0.3s; }
+        .social-link:hover { background: var(--white); color: var(--primary-black); }
+        .footer-section ul { list-style: none; }
+        .footer-section a { color: var(--white); text-decoration: none; opacity: 0.7; }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links { position: fixed; left: -100%; top: 80px; flex-direction: column; background: var(--primary-black); width: 100%; padding: 2rem 0; transition: 0.3s; }
+            .nav-links.active { left: 0; }
+            .hero h1 { font-size: 2.5rem; }
+            .services-grid, .pricing-grid, .blog-grid { grid-template-columns: 1fr; }
+            .pricing-card.featured { transform: scale(1); }
+            .footer-content { grid-template-columns: 1fr; }
+        }  
+     * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-black: #000000;
+            --secondary-black: #1a1a1a;
+            --light-gray: #f8f9fa;
+            --medium-gray: #6c757d;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary-black);
+            padding: 1.2rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: var(--primary-black);
+            font-size: 1.5rem;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--white);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--white);
+            color: var(--primary-black) !important;
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+            color: var(--primary-black) !important;
+        }
+
+        .nav-cta:after {
+            display: none !important;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Pages Container */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
+            color: var(--white);
+            padding: 120px 5% 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s infinite linear;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            letter-spacing: 4px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .hero-image {
+            max-width: 600px;
+            margin: 3rem auto 0;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary-black);
+            padding: 1rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            animation: fadeInUp 0.8s ease-out 0.5s backwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.3);
+        }
+
+        /* Content Sections */
+        .content-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-black);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: -2rem auto 4rem;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        /* Service Cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: 15px;
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: var(--primary-black);
+        }
+
+        .service-icon {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 1.5rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+
+        .service-icon img {
+        width: 250%;
+        height: 250%;
+        object-fit: contain;
+        display: block;
+
+        transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-black);
+        }
+
+        .service-card p {
+            color: var(--medium-gray);
+            line-height: 1.8;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .stat-box {
+            padding: 2rem;
+            background: var(--light-gray);
+            border-radius: 15px;
+            transition: all 0.3s;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .stat-box:nth-child(1) { animation-delay: 0.1s; }
+        .stat-box:nth-child(2) { animation-delay: 0.2s; }
+        .stat-box:nth-child(3) { animation-delay: 0.3s; }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary-black);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--medium-gray);
+            margin-top: 0.5rem;
+        }
+
+        /* Blog Cards */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            animation: fadeInUp 0.6s ease-out backwards;
+            cursor: pointer;
+        }
+
+        .blog-card:nth-child(1) { animation-delay: 0.1s; }
+        .blog-card:nth-child(2) { animation-delay: 0.2s; }
+        .blog-card:nth-child(3) { animation-delay: 0.3s; }
+        .blog-card:nth-child(4) { animation-delay: 0.4s; }
+        .blog-card:nth-child(5) { animation-delay: 0.5s; }
+        .blog-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #e0e0e0, #f5f5f5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-category {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--primary-black);
+            color: var(--white);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+            margin-bottom: 1rem;
+        }
+
+        .blog-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--primary-black);
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            color: var(--medium-gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            color: var(--primary-black);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+
+        .read-more:hover {
+            gap: 1rem;
+        }
+
+        /* Blog Post Modal */
+        .blog-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 10000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .blog-modal.active {
+            display: block;
+        }
+
+        .blog-modal-content {
+            max-width: 900px;
+            margin: 3rem auto;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 4rem;
+            position: relative;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .blog-modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2rem;
+            cursor: pointer;
+            background: var(--light-gray);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .blog-modal-close:hover {
+            background: var(--primary-black);
+            color: var(--white);
+            transform: rotate(90deg);
+        }
+
+        .blog-post-header {
+            margin-bottom: 3rem;
+        }
+
+        .blog-post-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--primary-black);
+            line-height: 1.2;
+        }
+
+        .blog-post-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--medium-gray);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .blog-post-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #e0e0e0, #f5f5f5);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .blog-post-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #333;
+        }
+
+        .blog-post-content h2 {
+            font-size: 2rem;
+            margin: 2.5rem 0 1.5rem;
+            color: var(--primary-black);
+        }
+
+        .blog-post-content h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--secondary-black);
+        }
+
+        .blog-post-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-post-content ul, .blog-post-content ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+        }
+
+        .blog-post-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            background: var(--light-gray);
+            padding: 3rem;
+            border-radius: 20px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-black);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-black);
+            transform: scale(1.02);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background: var(--primary-black);
+            color: var(--white);
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .contact-item {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-black);
+        }
+
+        .contact-item p {
+            color: var(--medium-gray);
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-black);
+            color: var(--white);
+            padding: 5rem 5% 0;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            max-width: 350px;
+        }
+
+        .footer-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo-image {
+            width: 2px;
+            height: 1px;
+            background: var(--white);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: var(--primary-black);
+            font-size: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            display: block;
+        }
+
+        .footer-tagline {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-description {
+            line-height: 1.8;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 10%;
+            height: 0.3%;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--white);
+            color: var(--primary-black);
+            transform: translateY(-5px);
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .footer-newsletter p {
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-form input {
+            padding: 0.9rem 1.2rem;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            background: rgba(255,255,255,0.05);
+            color: var(--white);
+            transition: all 0.3s;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--white);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .newsletter-form button {
+            padding: 0.9rem 1.5rem;
+            background: var(--white);
+            color: var(--primary-black);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255,255,255,0.3);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom-left {
+            opacity: 0.7;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-links a:hover {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .top-bar-left,
+            .top-bar-right {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: var(--primary-black);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+                gap: 1.5rem;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="./image/logo3 (2).jpg" alt="Strivton Logo" class="logo-image">
+                <!-- <a href="#" class="logo" onclick="showPage('home')">STRIVTON</a> -->
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('about')">About</a></li>
+                <li><a href="#" onclick="showPage('services')">Services</a></li>
+                <li><a href="#" onclick="showPage('pricing')">Pricing</a></li>
+                <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+                <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                <li><a href="#" onclick="showPage('contact')" class="nav-cta">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <video autoplay muted loop playsinline class="hero-video"><source src="./image/video.mp4" type="video/mp4"></video>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>STRIVTON</h1>
+                <div class="tagline">CREATE THE BUZZ</div>
+                <p>PR & Digital Marketing for brands that refuse to whisper.</p>
+                <a href="#" class="cta-button" onclick="showPage('contact')">Let's Make Noise Together</a>
+            </div>
+        </section>
+        <section class="content-section">
+            <h2 class="section-title">What We Do</h2>
+            <p class="section-subtitle">From PR to digital marketing, we're your complete communications powerhouse.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="./image/pr.jpg" alt="">
+                    </div>
+                    <h3>PR & Media Placement</h3>
+                    <p>Get featured where it matters. Strategic media relations that position you as the industry voice.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="./image/dig.jpg" alt="">
+                    </div>
+                    <h3>Digital Marketing</h3>
+                    <p>The complete package. Integrated campaigns that drive traffic, engagement, and real results.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="./image/brand.jpg" alt="">
+                    </div>
+                    <h3>Brand Consultation</h3>
+                    <p>Transform how the world sees you. Strategy, identity, and positioning that connects.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="./image/rep2.jpg" alt="">
+                    </div>
+                    <h3>Reputation Management</h3>
+                    <p>Protect what you've built. Crisis management and ongoing reputation protection.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="./image/content.jpg" alt="">
+                    </div>
+                    <h3>Content Creation</h3>
+                    <p>Stories that stop the scroll. Custom content that's on-brand and impossible to ignore.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" style="background: var(--light-gray);">
+            <h2 class="section-title">Why Choose Strivton?</h2>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Client Focused</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Core Services</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Latest Insights</h2>
+            <p class="section-subtitle">Stay ahead with our latest thoughts on PR, marketing, and brand strategy</p>
+            
+            <div class="blog-grid">
+                <div class="blog-card" onclick="openBlogPost(1)">
+                    <div class="blog-image">
+                        <span class="blog-category">PR Strategy</span>
+                        <img src="./image/1.jpg" alt="">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 Dec 15, 2024</span>
+                            <span>⏱️ 5 min read</span>
+                        </div>
+                        <h3>How to Get Your Brand Featured in Top Publications</h3>
+                        <p>Learn the insider secrets to securing media placements that actually matter. From pitch perfection to relationship building...</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="openBlogPost(2)">
+                    <div class="blog-image">
+                        <span class="blog-category">Digital Marketing</span>
+                        <img src="./image/69f730cf0b4333df13bf6b45058aa2c3.jpg" alt="">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 Dec 10, 2024</span>
+                            <span>⏱️ 7 min read</span>
+                        </div>
+                        <h3>5 Digital Marketing Trends Dominating 2025</h3>
+                        <p>AI-powered campaigns, authentic storytelling, and micro-communities are reshaping how brands connect with audiences...</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="openBlogPost(3)">
+                    <div class="blog-image">
+                        <span class="blog-category">Brand Strategy</span>
+                        <img src="./image/67.jpg" alt="">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 Dec 5, 2024</span>
+                            <span>⏱️ 6 min read</span>
+                        </div>
+                        <h3>When Your Brand Needs a Refresh (And How to Do It)</h3>
+                        <p>Is your brand feeling stale? Here are the telltale signs it's time for a revamp and our step-by-step process...</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#" onclick="showPage('blog')" style="display: inline-block; background: var(--primary-black); color: var(--white); padding: 1rem 3rem; font-size: 1.1rem; font-weight: 700; text-decoration: none; border-radius: 50px; transition: all 0.3s;">View All Articles</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>About Strivton</h1>
+                <p>We're not your typical PR agency. We're storytellers, strategists, and noise-makers who believe every brand deserves to be heard.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Our Mission</h2>
+            <p class="section-subtitle">We exist to amplify brands that refuse to blend in. In a world of whispers, we help you create the buzz that matters.</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"></div>
+                    <h3>Authenticity</h3>
+                    <p>No fake hype. We tell real stories that resonate with real people.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"></div>
+                    <h3>Results-Driven</h3>
+                    <p>Pretty campaigns mean nothing without impact. We focus on what moves the needle.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"></div>
+                    <h3>Innovation</h3>
+                    <p>The PR playbook is evolving. We stay ahead of the curve with cutting-edge strategies.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"></div>
+                    <h3>Partnership</h3>
+                    <p>Your success is our success. We're in this together, every step of the way.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- SERVICES PAGE -->
+    <div id="services" class="page">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Our Services</h1>
+                <p>Comprehensive PR and digital marketing solutions tailored to your brand's needs.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"></div>
+                    <h3>PR & Media Placement</h3>
+                    <p>Strategic media relations that get you featured where it matters. We secure press coverage, manage journalist relationships, and position you as the go-to voice in your industry.</p>
+                    <ul style="margin-top: 1.5rem; list-style: none; padding: 0;">
+                        <li>✓ Press release writing & distribution</li>
+                        <li>✓ Media kit development</li>
+                        <li>✓ Journalist outreach & relationship building</li>
+                        <li>✓ Interview preparation & media training</li>
+                        <li>✓ Feature placements in top publications</li>
+                        <li>✓ Event coverage coordination</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"></div>
+                    <h3>PR & Digital Marketing</h3>
+                    <p>The complete package. We handle your PR while running high-impact digital campaigns that drive real results like leads, traffic, engagement, and conversions.</p>
+                    <ul style="margin-top: 1.5rem; list-style: none; padding: 0;">
+                        <li>✓ Integrated PR & digital strategy</li>
+                        <li>✓ Social media management & advertising</li>
+                        <li>✓ Email marketing campaigns</li>
+                        <li>✓ SEO & content marketing</li>
+                        <li>✓ Influencer partnerships</li>
+                        <li>✓ Performance analytics & reporting</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"></div>
+                    <h3>Brand Consultation & Revamp</h3>
+                    <p>Your brand isn't connecting? We'll fix that. From strategy to visual identity, we transform how the world sees you.</p>
+                    <ul style="margin-top: 1.5rem; list-style: none; padding: 0;">
+                        <li>✓ Brand audit & competitive analysis</li>
+                        <li>✓ Positioning & messaging strategy</li>
+                        <li>✓ Visual identity development</li>
+                        <li>✓ Brand voice & tone guidelines</li>
+                        <li>✓ Launch strategy & rollout plan</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"></div>
+                    <h3>Reputation Management</h3>
+                    <p>Protecting what you've built. We monitor your online presence, manage crises, and ensure your reputation stays intact or rebuild it when needed.</p>
+                    <ul style="margin-top: 1.5rem; list-style: none; padding: 0;">
+                        <li>✓ Online reputation monitoring</li>
+                        <li>✓ Crisis communication planning</li>
+                        <li>✓ Negative review management</li>
+                        <li>✓ Crisis response & damage control</li>
+                        <li>✓ Reputation recovery strategies</li>
+                        <li>✓ Ongoing brand protection</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"></div>
+                    <h3>Custom Brand Content Creation</h3>
+                    <p>Stories that stop the scroll. We create content that's on-brand, on-message, and impossible to ignore.</p>
+                    <ul style="margin-top: 1.5rem; list-style: none; padding: 0;">
+                        <li>✓ Social media content (posts, reels, stories)</li>
+                        <li>✓ Blog articles & thought leadership pieces</li>
+                        <li>✓ Video scripts & production</li>
+                        <li>✓ Graphic design & visual content</li>
+                        <li>✓ Copywriting for ads, emails, websites</li>
+                        <li>✓ Content calendars & strategy</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PRICING PAGE -->
+    <div id="pricing" class="page">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Pricing Plans</h1>
+                <p>Transparent pricing that scales with your ambitions. No hidden fees, no surprises.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Monthly Retainer Packages</h2>
+            <p class="section-subtitle">Choose the plan that fits your brand's stage and goals</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="tier-name">SPARK</div>
+                    <p style="opacity: 0.8; margin: 0.5rem 0;">Perfect for startups & small businesses</p>
+                    <div class="price">$275 - $450<span style="font-size: 1rem; font-weight: 400;">/month</span></div>
+                    <ul>
+                        <li>Social media management (3 platforms)</li>
+                        <li>12 custom content pieces/month</li>
+                        <li>Basic PR strategy & 1 press release/month</li>
+                        <li>Monthly performance report</li>
+                        <li>Email support</li>
+                    </ul>
+                    <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;"><strong>Best for:</strong> New brands, solopreneurs, early-stage startups</p>
+                    <a href="#" onclick="showPage('contact')" style="display: block; margin-top: 2rem; text-align: center; background: var(--primary-black); color: var(--white); padding: 1rem 3rem; font-size: 1.1rem; font-weight: 700; text-decoration: none; border-radius: 50px; transition: all 0.3s;">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--white); color: var(--primary-black); padding: 0.5rem 2rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem;">MOST POPULAR</div>
+                    <div class="tier-name">AMPLIFY</div>
+                    <p style="opacity: 0.8; margin: 0.5rem 0;">For growing brands ready to dominate</p>
+                    <div class="price">$515 - $825<span style="font-size: 1rem; font-weight: 400;">/month</span></div>
+                    <ul>
+                        <li>Everything in SPARK, plus:</li>
+                        <li>Full PR & digital marketing integration</li>
+                        <li>Media outreach & placement (2-3/month)</li>
+                        <li>Social media management (all platforms)</li>
+                        <li>20 custom content pieces/month</li>
+                        <li>Brand consultation & strategy sessions</li>
+                        <li>Reputation monitoring</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;"><strong>Best for:</strong> Established businesses, scale-ups, brands with momentum</p>
+                    <a href="#" onclick="showPage('contact')" class="cta-button" style="display: block; margin-top: 2rem; text-align: center;">Get Started</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="tier-name">DOMINATE</div>
+                    <p style="opacity: 0.8; margin: 0.5rem 0;">For brands that refuse to be second</p>
+                    <div class="price">$1,100+<span style="font-size: 1rem; font-weight: 400;">/month</span></div>
+                    <div class="price-note">Custom pricing</div>
+                    <ul>
+                        <li>Everything in AMPLIFY, plus:</li>
+                        <li>Dedicated account manager</li>
+                        <li>Aggressive media placement (5+/month)</li>
+                        <li>Full brand revamp (if needed)</li>
+                        <li>Crisis management & 24/7 support</li>
+                        <li>Influencer partnerships & activations</li>
+                        <li>Video content production</li>
+                        <li>Custom reporting dashboard</li>
+                        <li>Weekly strategy sessions</li>
+                        <li>First access to new services</li>
+                    </ul>
+                    <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;"><strong>Best for:</strong> Established brands, corporate clients, high-growth companies</p>
+                    <a href="#" onclick="showPage('contact')" class="cta-button" style="display: block; margin-top: 2rem; text-align: center;">Get Started</a>
+                </div>
+            </div>
+
+            <div style="background: var(--light-gray); padding: 2rem; border-radius: 15px; margin-top: 4rem; text-align: center;">
+                <p style="font-size: 1.1rem; color: var(--medium-gray);"><strong>Commitment Benefits:</strong> Get 5% off with 6-month commitment • 10% off with 12-month commitment</p>
+            </div>
+        </section>
+
+        <section class="content-section" style="background: var(--light-gray);">
+            <h2 class="section-title">À La Carte Services</h2>
+            <p class="section-subtitle">Need something specific? We've got you covered.</p>
+            
+            <div class="services-grid">
+                <div class="service-card" style="background: white;">
+                    <div class="service-icon"></div>
+                    <h3>Brand Consultation</h3>
+                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--primary-black); margin: 1rem 0;">$150 - $349</p>
+                    <p>One-time strategy session</p>
+                </div>
+                <div class="service-card" style="background: white;">
+                    <div class="service-icon"></div>
+                    <h3>Brand Revamp (Full)</h3>
+                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--primary-black); margin: 1rem 0;">$549 - $1,373</p>
+                    <p>Project-based pricing</p>
+                </div>
+                <div class="service-card" style="background: white;">
+                    <div class="service-icon"></div>
+                    <h3>Crisis Management</h3>
+                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--primary-black); margin: 1rem 0;">$275 - $549/mo</p>
+                    <p>Monthly retainer</p>
+                </div>
+                <div class="service-card" style="background: white;">
+                    <div class="service-icon"></div>
+                    <h3>Press Release</h3>
+                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--primary-black); margin: 1rem 0;">$50 - $100</p>
+                    <p>Writing & distribution per release</p>
+                </div>
+                <div class="service-card" style="background: white;">
+                    <div class="service-icon"></div>
+                    <h3>Media Training</h3>
+                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--primary-black); margin: 1rem 0;">$103 - $205</p>
+                    <p>Half or full day session</p>
+                </div>
+                <div class="service-card" style="background: white;">
+                    <div class="service-icon"></div>
+                    <h3>Content Package</h3>
+                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--primary-black); margin: 1rem 0;">$120 - $250</p>
+                    <p>5-10 custom pieces</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Project-Based Packages</h2>
+            <p class="section-subtitle">Complete solutions for specific needs</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="service-icon" style="font-size: 3rem; margin-bottom: 1rem;"></div>
+                    <div class="tier-name" style="font-size: 1.8rem;">Launch Package</div>
+                    <p style="margin: 1rem 0;">For new product/service launches</p>
+                    <div class="price" style="font-size: 2rem;">$415 - $1,030</div>
+                    <ul style="text-align: left; margin-top: 2rem;">
+                        <li>Pre-launch strategy</li>
+                        <li>Press kit & media materials</li>
+                        <li>Launch event coordination</li>
+                        <li>Media outreach & placements</li>
+                        <li>Social media amplification</li>
+                        <li>Post-launch analysis</li>
+                    </ul>
+                    <a href="#" onclick="showPage('contact')" style="display: block; margin-top: 2rem; text-align: center; background: var(--primary-black); color: var(--white); padding: 1rem 3rem; font-size: 1.1rem; font-weight: 700; text-decoration: none; border-radius: 50px; transition: all 0.3s;">Learn More</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="service-icon" style="font-size: 3rem; margin-bottom: 1rem;"></div>
+                    <div class="tier-name" style="font-size: 1.8rem;">Reputation Recovery</div>
+                    <p style="margin: 1rem 0;">For brands in crisis</p>
+                    <div class="price" style="font-size: 2rem;">$687 - $2,060</div>
+                    <p style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 1rem;">Varies by severity</p>
+                    <ul style="text-align: left; margin-top: 2rem;">
+                        <li>Crisis assessment</li>
+                        <li>Response strategy & execution</li>
+                        <li>Media management</li>
+                        <li>Online reputation repair</li>
+                        <li>Ongoing monitoring (3-6 months)</li>
+                    </ul>
+                    <a href="#" onclick="showPage('contact')" class="cta-button" style="display: block; margin-top: 2rem; text-align: center;">Learn More</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="service-icon" style="font-size: 3rem; margin-bottom: 1rem;"></div>
+                    <div class="tier-name" style="font-size: 1.8rem;">Rebrand Package</div>
+                    <p style="margin: 1rem 0;">Complete brand transformation</p>
+                    <div class="price" style="font-size: 2rem;">$824 - $1,720</div>
+                    <ul style="text-align: left; margin-top: 2rem;">
+                        <li>Brand audit</li>
+                        <li>New positioning & messaging</li>
+                        <li>Visual identity redesign</li>
+                        <li>Brand guidelines</li>
+                        <li>Launch strategy & rollout</li>
+                    </ul>
+                    <a href="#" onclick="showPage('contact')" class="cta-button" style="display: block; margin-top: 2rem; text-align: center;">Learn More</a>
+                </div>
+            </div>
+
+            <div style="background: var(--primary-black); color: var(--white); padding: 3rem; border-radius: 20px; margin-top: 4rem;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center;">Payment Terms & What's Included</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div>
+                        <h4 style="margin-bottom: 0.5rem;">💳 Payment Terms</h4>
+                        <p style="font-size: 0.95rem; opacity: 0.8;">Monthly retainers: 50% upfront, 50% mid-month<br>Project-based: 50% to start, 50% on completion<br>À la carte: Full payment upfront</p>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 0.5rem;"> Contract Length</h4>
+                        <p style="font-size: 0.95rem; opacity: 0.8;">Minimum 3-month commitment for retainers<br>Discounts available for longer commitments</p>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 0.5rem;"> Not Included</h4>
+                        <p style="font-size: 0.95rem; opacity: 0.8;">Paid advertising budgets<br>Event venue costs<br>Third-party tools/software<br>Out-of-state travel expenses</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- BLOG PAGE -->
+    <div id="blog" class="page">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>The Buzz</h1>
+                <p>Insights, strategies, and stories from the world of PR and digital marketing</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="blog-grid">
+                <div class="blog-card" onclick="openBlogPost(1)">
+                    <div class="blog-image">
+                        <span class="blog-category">PR Strategy</span>
+                        <img src="./image/1.jpg" alt="">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 Dec 15, 2024</span>
+                            <span>⏱️ 5 min read</span>
+                        </div>
+                        <h3>How to Get Your Brand Featured in Top Publications</h3>
+                        <p>Learn the insider secrets to securing media placements that actually matter. From pitch perfection to relationship building, we break down exactly what it takes to get journalists excited about your story.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="openBlogPost(2)">
+                    <div class="blog-image">
+                        <span class="blog-category">Digital Marketing</span>
+                        <img src="./image/69f730cf0b4333df13bf6b45058aa2c3.jpg" alt="">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 Dec 10, 2024</span>
+                            <span>⏱️ 7 min read</span>
+                        </div>
+                        <h3>5 Digital Marketing Trends Dominating 2025</h3>
+                        <p>AI-powered campaigns, authentic storytelling, and micro-communities are reshaping how brands connect with audiences. Here's what you need to know to stay ahead of the curve.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="openBlogPost(3)">
+                    <div class="blog-image">
+                        <span class="blog-category">Brand Strategy</span>
+                        <img src="./image/67.jpg" alt="">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 Dec 5, 2024</span>
+                            <span>⏱️ 6 min read</span>
+                        </div>
+                        <h3>When Your Brand Needs a Refresh (And How to Do It)</h3>
+                        <p>Is your brand feeling stale? Here are the telltale signs it's time for a revamp and our step-by-step process for breathing new life into your brand identity.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="openBlogPost(4)">
+                    <div class="blog-image">
+                        <span class="blog-category">Crisis Management</span>
+                        <img src="./image/20.jpg" alt="">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 Nov 28, 2024</span>
+                            <span>⏱️ 8 min read</span>
+                        </div>
+                        <h3>The First 24 Hours: Crisis Communication 101</h3>
+                        <p>When crisis hits, every minute counts. Learn how to protect your reputation with rapid response strategies that actually work in high-pressure situations.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="openBlogPost(5)">
+                    <div class="blog-image">
+                        <span class="blog-category">Content Strategy</span>
+                        <img src="./image/30b.jpg" alt="">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 Nov 20, 2024</span>
+                            <span>⏱️ 5 min read</span>
+                        </div>
+                        <h3>Stop Creating Content. Start Creating Conversations.</h3>
+                        <p>The content that wins isn't just well-written—it's conversation-worthy. Here's how to create content that gets people talking, sharing, and engaging.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="openBlogPost(6)">
+                    <div class="blog-image">
+                        <span class="blog-category">Social Media</span>
+                        <img src="./image/40b.jpg" alt="">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 Nov 15, 2024</span>
+                            <span>⏱️ 6 min read</span>
+                        </div>
+                        <h3>Algorithm Changes: How to Stay Visible in 2025</h3>
+                        <p>Social media algorithms are constantly evolving. Learn the latest strategies to maintain organic reach and keep your content in front of your audience.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Let's Talk</h1>
+                <p>Ready to create the buzz? Get in touch and let's start amplifying your brand.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h2 style="margin-bottom: 2rem; color: var(--primary-black);">Send Us a Message</h2>
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="+234">
+                    </div>
+                    <div class="form-group">
+                        <label>Service Interested In</label>
+                        <select>
+                            <option>Select a service</option>
+                            <option>PR & Media Placement</option>
+                            <option>Digital Marketing</option>
+                            <option>Brand Consultation</option>
+                            <option>Reputation Management</option>
+                            <option>Content Creation</option>
+                            <option>Full Package</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <textarea placeholder="Tell us about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+    <h3><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>Email Us</h3>
+    <p>hello@strivton.com</p>
+    <p style="margin-top: 0.5rem; font-size: 0.95rem;">We'll respond within 24 hours</p>
+</div>
+                    <div class="contact-item">
+                        <h3><i class="fas fa-phone" style="margin-right: 0.5rem;"></i>Call Us</h3>
+                        <p>+234 XXX XXX XXXX</p>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem;">Mon-Fri, 9AM-6PM WAT</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i>Location</h3>
+                        <p>Worldwide Service</p>
+                        <p style="margin-top: 0.5rem; font-size: 0.95rem;">Remote consultations available</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>💬 Follow Us</h3>
+                      <div class="social-links" style="margin-top: 1rem;">
+                            <a href="https://www.facebook.com/share/1AgRS53fEo/" class="social-link" style="color: black;"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/strivton" class="social-link" style="color: black;"><i class="fab fa-x-twitter"></i></a>
+                            <a href="https://www.linkedin.com/company/strivton/" class="social-link" style="color: black;"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/strivton" class="social-link" style="color: black;"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@strivton" class="social-link" style="color: #000;"><i class="fab fa-tiktok"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo-container">
+                    <div class="footer-logo-image">
+                <img src="./image/logo3 (2).jpg" alt="Strivton" style="padding-left: 50px; width: 100px; height: 100px; object-fit: contain;">                    </div>
+                    <span class="footer-logo"></span>
+                </div>
+                <div class="footer-tagline"></div>
+                <p class="footer-description">
+                    We're a global PR and digital marketing agency helping brands create meaningful noise in a crowded world. Let's amplify your story together.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.tiktok.com/@strivton?_r=1&_t=ZS-92L06qIwHEQ" target="_blank" class="social-link" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+
+                    <a href="https://x.com/strivton" target="_blank" class="social-link" aria-label="X">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/share/1AgRS53fEo/" target="_blank" class="social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/company/strivton/" target="_blank" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/strivton?igsh=ZnZyZXV3MWxraHl4" target="_blank" class="social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                    <li><a href="#" onclick="showPage('services')">Services</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#" onclick="showPage('services')">Public Relations</a></li>
+                    <li><a href="#" onclick="showPage('services')">Digital Marketing</a></li>
+                    <li><a href="#" onclick="showPage('services')">Brand Strategy</a></li>
+                    <li><a href="#" onclick="showPage('services')">Content Creation</a></li>
+                    <li><a href="#" onclick="showPage('services')">Reputation Management</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for the latest insights on PR, marketing trends, and industry news.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address">
+                    <button type="submit">Subscribe</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <p>&copy; 2025 Strivton. All rights reserved.</p>
+            </div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Blog Post Modal -->
+    <div id="blogModal" class="blog-modal">
+        <div class="blog-modal-content">
+            <div class="blog-modal-close" onclick="closeBlogPost()">×</div>
+            <div id="blogPostContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        // Blog posts data
+        const blogPosts = {
+            1: {
+                title: "How to Get Your Brand Featured in Top Publications",
+                category: "PR Strategy",
+                date: "Dec 15, 2024",
+                readTime: "5 min read",
+                image: "📢",
+                content: `
+                    <p>Getting featured in top-tier publications isn't about luck—it's about strategy, timing, and understanding what journalists actually want. After years of securing placements for our clients, we've cracked the code.</p>
+
+                    <h2>1. Know Your Story's Angle</h2>
+                    <p>Journalists don't want your sales pitch. They want stories that matter to their readers. Before reaching out, ask yourself: "Why would their audience care?" Your unique insight, data, or perspective is what gets you featured.</p>
+
+                    <h2>2. Build Relationships Before You Need Them</h2>
+                    <p>The best media placements come from existing relationships. Follow journalists on social media, engage with their work genuinely, and add value to their reporting. When you eventually pitch, you're not a stranger—you're a familiar face.</p>
+
+                    <h2>3. Perfect Your Pitch</h2>
+                    <p>Your pitch should be:</p>
+                    <ul>
+                        <li>Short (under 150 words)</li>
+                        <li>Personalized (reference their recent work)</li>
+                        <li>Timely (tie into current trends or news)</li>
+                        <li>Value-driven (what's in it for their readers?)</li>
+                    </ul>
+
+                    <h2>4. Timing Is Everything</h2>
+                    <p>Tuesday through Thursday, between 10 AM and 2 PM, tends to get the best response rates. Avoid Mondays (inbox overload) and Fridays (people are checking out). Also, never pitch on major news days when journalists are swamped.</p>
+
+                    <h2>5. Follow Up (But Don't Be Annoying)</h2>
+                    <p>If you haven't heard back in 48-72 hours, one polite follow-up is appropriate. After that, move on. Persistence is good; pestering isn't.</p>
+
+                    <p><strong>Bottom line:</strong> Media placements happen when you provide value, respect journalists' time, and approach PR as relationship-building, not transactional outreach.</p>
+                `
+            },
+            2: {
+                title: "5 Digital Marketing Trends Dominating 2025",
+                category: "Digital Marketing",
+                date: "Dec 10, 2024",
+                readTime: "7 min read",
+                image: "🚀",
+                content: `
+                    <p>The digital marketing landscape is evolving faster than ever. Here are the five trends that are reshaping how brands connect with their audiences in 2025.</p>
+
+                    <h2>1. AI-Powered Personalization at Scale</h2>
+                    <p>Gone are the days of generic email blasts. AI now enables hyper-personalized content for every customer touchpoint. Brands that leverage predictive analytics and dynamic content are seeing engagement rates skyrocket.</p>
+
+                    <h2>2. Authentic, Unpolished Content Wins</h2>
+                    <p>Polished, overproduced content is out. Raw, authentic, behind-the-scenes content is in. Audiences crave realness, and brands that show vulnerability are building stronger connections than ever before.</p>
+
+                    <h2>3. Micro-Communities Over Mass Audiences</h2>
+                    <p>Instead of chasing millions of followers, smart brands are building tight-knit communities of engaged superfans. These micro-communities drive more conversions, loyalty, and word-of-mouth than massive but passive audiences.</p>
+
+                    <h2>4. Video Everywhere (And It's Getting Shorter)</h2>
+                    <p>Short-form video continues to dominate, but the sweet spot is now 15-30 seconds. Platforms are prioritizing video in feeds, and brands that can tell compelling stories quickly are winning attention.</p>
+
+                    <h2>5. Privacy-First Marketing</h2>
+                    <p>With increasing privacy regulations and cookie deprecation, first-party data and consent-based marketing are essential. Brands that build trust through transparency are future-proofing their marketing strategies.</p>
+
+                    <p><strong>The takeaway:</strong> The brands winning in 2025 are human, personal, and community-focused. Technology enables scale, but authenticity drives connection.</p>
+                `
+            },
+            3: {
+                title: "When Your Brand Needs a Refresh (And How to Do It)",
+                category: "Brand Strategy",
+                date: "Dec 5, 2024",
+                readTime: "6 min read",
+                image: "✨",
+                content: `
+                    <p>Is your brand feeling a little... off? You're not alone. Even successful brands need periodic refreshes to stay relevant and competitive.</p>
+
+                    <h2>Signs Your Brand Needs a Refresh</h2>
+                    <ul>
+                        <li><strong>Your visuals look dated</strong> – If your logo screams 2010, it's time.</li>
+                        <li><strong>You've evolved but your brand hasn't</strong> – Your offerings have changed, but your messaging is stuck in the past.</li>
+                        <li><strong>You're invisible in your market</strong> – Competitors are getting attention while you blend into the background.</li>
+                        <li><strong>Internal confusion</strong> – Your team can't clearly articulate what you stand for.</li>
+                        <li><strong>Declining engagement</strong> – Your audience isn't connecting like they used to.</li>
+                    </ul>
+
+                    <h2>Our Brand Refresh Process</h2>
+
+                    <h3>1. Audit Everything</h3>
+                    <p>We start with a deep dive into your current brand perception—internally and externally. What's working? What's not? Where are the gaps?</p>
+
+                    <h3>2. Define Your Position</h3>
+                    <p>Who are you really? What makes you different? We clarify your positioning, target audience, and unique value proposition.</p>
+
+                    <h3>3. Develop Your Identity</h3>
+                    <p>From visual identity to brand voice, we create a cohesive system that reflects who you are and where you're going.</p>
+
+                    <h3>4. Roll Out Strategically</h3>
+                    <p>A brand refresh isn't just a new logo drop. We create a launch strategy that builds excitement and brings stakeholders along for the journey.</p>
+
+                    <h2>Refresh vs. Rebrand: What's the Difference?</h2>
+                    <p>A <strong>refresh</strong> updates and modernizes while keeping core equity. A <strong>rebrand</strong> is a complete transformation. Most brands need a refresh, not a rebrand. We'll help you figure out which is right for you.</p>
+
+                    <p><strong>Ready to breathe new life into your brand?</strong> Let's talk about what's possible.</p>
+                `
+            },
+            4: {
+                title: "The First 24 Hours: Crisis Communication 101",
+                category: "Crisis Management",
+                date: "Nov 28, 2024",
+                readTime: "8 min read",
+                image: "🛡️",
+                content: `
+                    <p>A crisis can strike any brand at any time. How you respond in the first 24 hours can mean the difference between recovery and disaster.</p>
+
+                    <h2>Hour 1-2: Assess and Contain</h2>
+                    <p>Don't rush to respond publicly. First, gather all the facts internally. What happened? Who's affected? What's the potential impact? Assemble your crisis team immediately.</p>
+
+                    <h2>Hour 3-6: Craft Your Message</h2>
+                    <p>Your first public statement should:</p>
+                    <ul>
+                        <li>Acknowledge the situation</li>
+                        <li>Express empathy for those affected</li>
+                        <li>State what you're doing about it</li>
+                        <li>Commit to transparency</li>
+                    </ul>
+                    <p>What it should NOT do: make excuses, shift blame, or minimize the issue.</p>
+
+                    <h2>Hour 7-12: Deploy Across Channels</h2>
+                    <p>Silence breeds speculation. Get your message out across all relevant channels—social media, email, your website, and direct outreach to key stakeholders.</p>
+
+                    <h2>Hour 13-24: Monitor and Respond</h2>
+                    <p>Track sentiment, answer questions, and provide updates as you learn more. The worst thing you can do is go dark.</p>
+
+                    <h2>Crisis Prevention Checklist</h2>
+                    <ul>
+                        <li>Have a crisis communication plan BEFORE you need it</li>
+                        <li>Designate a crisis team and spokesperson</li>
+                        <li>Monitor your brand mentions constantly</li>
+                        <li>Build goodwill during good times</li>
+                        <li>Have pre-approved message templates ready</li>
+                    </ul>
+
+                    <p><strong>Remember:</strong> How you handle a crisis defines your brand more than the crisis itself. Preparation and rapid response are your best defense.</p>
+                `
+            },
+            5: {
+                title: "Stop Creating Content. Start Creating Conversations.",
+                category: "Content Strategy",
+                date: "Nov 20, 2024",
+                readTime: "5 min read",
+                image: "📱",
+                content: `
+                    <p>The internet is drowning in content. The winners aren't creating more—they're creating better. Content that sparks conversation, not just consumption.</p>
+
+                    <h2>What Makes Content Conversation-Worthy?</h2>
+
+                    <h3>1. It Has a Point of View</h3>
+                    <p>Neutral content is forgettable. The best content takes a stand, challenges assumptions, or presents a unique perspective. People share things they agree (or disagree) with strongly.</p>
+
+                    <h3>2. It Invites Response</h3>
+                    <p>Ask questions. Create polls. Leave room for debate. Content that demands engagement gets engagement.</p>
+
+                    <h3>3. It's Emotionally Resonant</h3>
+                    <p>Make people feel something—inspired, validated, challenged, entertained. Emotional content spreads exponentially faster than purely informational content.</p>
+
+                    <h3>4. It's Visual and Scannable</h3>
+                    <p>Long blocks of text lose people. Use visuals, break up content, and make it easy to consume and share.</p>
+
+                    <h2>The Conversation Content Formula</h2>
+                    <ul>
+                        <li><strong>Hook:</strong> Grab attention with a bold statement or question</li>
+                        <li><strong>Value:</strong> Deliver insight, entertainment, or utility</li>
+                <li><strong>Perspective:</strong> Share your unique take</li>
+                        <li><strong>Call to Action:</strong> Invite response and engagement</li>
+                    </ul>
+
+                    <h2>Measure What Matters</h2>
+                    <p>Stop obsessing over vanity metrics. The real KPIs for conversation-worthy content:</p>
+                    <ul>
+                        <li>Comments and replies (not just likes)</li>
+                        <li>Shares and saves</li>
+                        <li>Time spent engaging</li>
+                        <li>Repeat visitors</li>
+                    </ul>
+
+                    <p><strong>Bottom line:</strong> Content that gets talked about beats content that just gets seen. Create conversations, not broadcasts.</p>
+                `
+            },
+            6: {
+                title: "Algorithm Changes: How to Stay Visible in 2025",
+                category: "Social Media",
+                date: "Nov 15, 2024",
+                readTime: "6 min read",
+                image: "💬",
+                content: `
+                    <p>Social media algorithms are like weather patterns—constantly shifting, sometimes unpredictable, but with recognizable patterns if you know what to look for.</p>
+
+                    <h2>What's Changing in 2025</h2>
+                    <p>Platforms are prioritizing:</p>
+                    <ul>
+                        <li><strong>Meaningful engagement</strong> over passive scrolling</li>
+                        <li><strong>Original content</strong> over reposts</li>
+                        <li><strong>Time spent</strong> over quick interactions</li>
+                        <li><strong>Authentic accounts</strong> over automation</li>
+                    </ul>
+
+                    <h2>Strategies That Still Work</h2>
+
+                    <h3>1. Create Platform-Native Content</h3>
+                    <p>Stop cross-posting identical content everywhere. Each platform has unique formats and audiences. Tailor your content accordingly.</p>
+
+                    <h3>2. Post When Your Audience Is Active</h3>
+                    <p>Algorithms favor content that generates quick engagement. Use analytics to find when your specific audience is online and active.</p>
+
+                    <h3>3. Encourage Meaningful Interaction</h3>
+                    <p>Comments and shares matter more than likes. Create content that prompts discussion, not just double-taps.</p>
+
+                    <h3>4. Stay Consistent</h3>
+                    <p>Algorithms reward accounts that post regularly. Quality over quantity, but consistency is key.</p>
+
+                    <h3>5. Build Community</h3>
+                    <p>Algorithms boost content to people who've engaged with you before. Nurture your existing community—they're your algorithm hack.</p>
+
+                    <h2>What Doesn't Work Anymore</h2>
+                    <ul>
+                        <li>Engagement bait ("tag a friend who...")</li>
+                        <li>Excessive hashtags</li>
+                        <li>Buying followers or engagement</li>
+                        <li>Low-effort reposts</li>
+                    </ul>
+
+                    <p><strong>The truth:</strong> Algorithms aren't your enemy. They're designed to surface content people want to see. Create that content, and visibility follows.</p>
+                `
+            }
+        };
+
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            
+            // Close mobile menu if open
+            document.getElementById('navLinks').classList.remove('active');
+            
+            // Close blog modal if open
+            document.getElementById('blogModal').classList.remove('active');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        function openBlogPost(postId) {
+            const post = blogPosts[postId];
+            const modal = document.getElementById('blogModal');
+            const container = document.getElementById('blogPostContainer');
+            
+            container.innerHTML = `
+                <div class="blog-post-header">
+                    <div style="display: inline-block; background: var(--primary-black); color: var(--white); padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem;">
+                        ${post.category}
+                    </div>
+                    <h1 class="blog-post-title">${post.title}</h1>
+                    <div class="blog-post-meta">
+                        <span>📅 ${post.date}</span>
+                        <span>⏱️ ${post.readTime}</span>
+                    </div>
+                </div>
+                <div class="blog-post-image">${post.image}</div>
+                <div class="blog-post-content">
+                    ${post.content}
+                </div>
+                <div style="margin-top: 4rem; padding: 3rem; background: var(--light-gray); border-radius: 15px; text-align: center;">
+                    <h3 style="margin-bottom: 1rem;">Ready to amplify your brand?</h3>
+                    <p style="margin-bottom: 2rem; color: var(--medium-gray);">Let's create the buzz that gets you noticed.</p>
+                    <a href="#" onclick="showPage('contact'); closeBlogPost();" style="display: inline-block; background: var(--primary-black); color: var(--white); padding: 1rem 3rem; font-size: 1.1rem; font-weight: 700; text-decoration: none; border-radius: 50px; transition: all 0.3s;">Get Started</a>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBlogPost() {
+            document.getElementById('blogModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('navLinks');
+            const toggle = document.querySelector('.menu-toggle');
+            
+            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+                nav.classList.remove('active');
+            }
+        });
+
+        // Close blog modal when clicking outside content
+        document.getElementById('blogModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeBlogPost();
+            }
+        });
+    </script>
+</body>
+</html>
